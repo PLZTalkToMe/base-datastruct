@@ -1,0 +1,3 @@
+"D:\Program Files\JetBrains\CLion 2020.1.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\base_datastruct.dir/objects.a
+D:\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\ar.exe cr CMakeFiles\base_datastruct.dir/objects.a @CMakeFiles\base_datastruct.dir\objects1.rsp
+D:\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\base_datastruct.dir/objects.a -Wl,--no-whole-archive  -o base_datastruct.exe -Wl,--out-implib,libbase_datastruct.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\base_datastruct.dir\linklibs.rsp
