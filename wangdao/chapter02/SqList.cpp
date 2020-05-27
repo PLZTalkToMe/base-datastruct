@@ -237,35 +237,84 @@ bool e07(SqList &L1, SqList &L2, SqList &L3){
     return true;
 }
 
+/**
+ * 习题8：
+ * 平移法（效率较低）
+ * @param arr
+ * @param m
+ * @param n
+ * @return
+ */
+bool e08(int arr[], int m, int n){
+    // 先交换相同长度部分
+    int len = m + n;
+    int temp;
+    printArray(arr, len);
+
+    while(m > 0){
+        temp = arr[0];
+        for(int i = 0; i < len; i++){
+            arr[i] = arr[i + 1];
+        }
+        arr[len -1] = temp;
+        m --;
+    }
+
+    printArray(arr, len);
+    return true;
+}
+
+
+void Reverse(int arr[], int begin, int end, int arraySize){
+    int mid = (begin + end ) / 2;
+    for(int i = 0; i <= mid - begin; i++){
+        int temp = arr[begin + i];
+        arr[begin + i] = arr[end - i];
+        arr[end - i] = temp;
+    }
+}
+/**
+ * 例题8：
+ * @param arr
+ * @param m
+ * @param n
+ * @return
+ */
+bool e08_ans(int arr[], int m, int n){
+    int len = m + n;
+    printArray(arr, len);
+    Reverse(arr, 0, len - 1, len);
+    Reverse(arr, 0, n - 1, len);
+    Reverse(arr, n, len - 1, len);
+    printArray(arr, len);
+    return true;
+}
+
+
+
+int e09(int arr[], int len, int x){
+    int left = 0, right = len - 1;
+    int mid = 0;
+    while(left <= right){
+        mid = (left + right) / 2;
+        if(arr[mid] == x){
+            return mid;
+        }else if(arr[mid] > x){
+            right = mid - 1;
+        }else{
+            left = mid + 1;
+        }
+    }
+    return -1;
+}
 
 
 
 int main() {
-    SqList L1, L2, L3;
-    L2.length = 7;
-    L1.length = 4;
-    L1.data[0] = 1;
-    L1.data[1] = 2;
-    L1.data[2] = 2;
-    L1.data[3] = 5;
-    L2.data[0] = 3;
-    L2.data[1] = 3;
-    L2.data[2] = 3;
-    L2.data[3] = 3;
-    L2.data[4] = 3;
-    L2.data[5] = 3;
-    L2.data[6] = 3;
-//    CommInit(L, 10, false);
-    printf("初始化：\n");
-    TravelSqList(L1);
-    printf("初始化：\n");
-    TravelSqList(L2);
-
-
-    e07(L1,L2,L3);
-
-    printf("处理后：\n");
-    TravelSqList(L3);
+    int a[11] = {0,1,2,3,4,5,6,7,8,9,10};
+    int ans = e09(a, 11,4);
+    printf("%d", ans);
+    return 1;
 }
 
 
