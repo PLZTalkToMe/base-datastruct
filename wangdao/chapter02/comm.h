@@ -2,6 +2,10 @@
 // Created by Administrator on 2020/5/24.
 //
 
+#include <cstdio>
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
 #ifndef BASE_DATASTRUCT_COMM_H
 #define BASE_DATASTRUCT_COMM_H
 
@@ -24,7 +28,10 @@ typedef struct LNode{
 }LNode, *LinkList;
 
 
-
+typedef struct DNode{
+    ElemType data;
+    struct DNode *prior, *next;
+}DNode, *DLinkList;
 
 //////////////////  method   /////////////////////////////
 void printArray(ElemType arr[], int len){

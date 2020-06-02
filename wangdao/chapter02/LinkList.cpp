@@ -1,7 +1,5 @@
 #include "comm.h"
-#include <iostream>
-#include <cstdio>
-#include <cstdlib>
+
 
 /**
  * 头插法
@@ -64,11 +62,26 @@ LNode* GetElem(LinkList L, int i){
         p=p->next;
         j++;
     }
-
     return p;
-
-
 }
+
+
+/**
+ * 定位文件的值
+ * @param L
+ * @param e
+ * @return
+ */
+LNode* LocateElem(LinkList &L, ElemType e){
+    LNode* p = L -> next;
+    while(p->next && p->data != e){
+        p = p ->next;
+    }
+    return p;
+}
+
+
+
 
 
 int main(){
